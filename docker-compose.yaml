@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+
+  webserver:
+    container_name: webserver
+    image: nginx:1.15.12
+    networks:
+      - lamp-network
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./www:/var/www/html/public
+
+  db:
+    container_name: db
+    environment:
+      MYSQL_DATABASE: lamp_db
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    image: mysql:8.0.15
+    networks:
+      - lamp-network
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - db:/var/lib/mysql
+
+  php:
+    container_name: php
+    image: php:7.3.4-fpm-stretch
+    networks:
+      - lamp-network
+    restart: unless-stopped
+    volumes:
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./www:/var/www/html/public
+
+networks:
+  lamp-network:
+    driver: bridge
+
+volumes:
+  db:
