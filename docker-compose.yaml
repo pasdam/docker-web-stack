@@ -23,7 +23,7 @@ services:
       MYSQL_ROOT_PASSWORD: your_mysql_root_password
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-    image: mysql:8.0.15
+    image: mysql:8.0.16
     networks:
       - lamp-network
     ports:
@@ -35,7 +35,7 @@ services:
 
   php:
     container_name: php
-    image: php:7.3.4-fpm-stretch
+    image: php:7.3.5-fpm-stretch
     networks:
       - lamp-network
     restart: unless-stopped
