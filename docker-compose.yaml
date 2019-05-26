@@ -4,7 +4,7 @@ services:
 
   webserver:
     container_name: webserver
-    image: nginx:1.15.12
+    image: nginx:1.15.12-alpine
     networks:
       - lamp-network
     ports:
@@ -35,7 +35,7 @@ services:
 
   php:
     container_name: php
-    image: php:7.3.5-fpm-stretch
+    image: php:7.3.5-fpm-alpine3.9
     networks:
       - lamp-network
     restart: unless-stopped
