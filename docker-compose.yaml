@@ -33,6 +33,20 @@ services:
     volumes:
       - db:/var/lib/mysql
 
+  phpmyadmin:
+    container_name: phpmyadmin
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin:4.7
+    links:
+      - db:db
+    networks:
+      - lamp-network
+    ports:
+      - 8090:80
+    volumes:
+      - /sessions
+
   php:
     container_name: php
     image: php:7.3.5-fpm-alpine3.9
