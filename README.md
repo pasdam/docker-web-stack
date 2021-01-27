@@ -34,3 +34,8 @@ At this point you should be able to access:
   PHP config;
 * phpmyadmin at [localhost:8080](http://localhost:8080/): you can login using
   `root` and the DB password in the env file created before.
+
+## Legacy version
+
+In case you need to run a stack with a legacy version of PHP 5 you can use the
+`docker-compose-legacy.yml`, which uses an old PHP image.
