@@ -13,7 +13,7 @@ services:
 
   db:
     env_file:
-      - .local.env
+      - mariadb.local.env
     environment:
       MYSQL_DATABASE: lamp_db
       SERVICE_TAGS: dev
