@@ -28,12 +28,8 @@ then spin up the containers:
 docker-compose up
 ```
 
-At this point you should be able to access:
-
-* the website at [localhost](http://localhost/): it should show a summary of the
-  PHP config;
-* phpmyadmin at [localhost:8080](http://localhost:8080/): you can login using
-  `root` and the DB password in the env file created before.
+At this point you should be able to access the website at
+[localhost](http://localhost/): it should show a summary of the PHP config.
 
 ## Legacy version
 

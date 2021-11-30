@@ -23,16 +23,6 @@ services:
     volumes:
       - ./data/db:/var/lib/mysql
 
-  phpmyadmin:
-    depends_on:
-      - db
-    image: phpmyadmin/phpmyadmin:5.0.4
-    ports:
-     - 8080:80
-    restart: unless-stopped
-    volumes:
-     - /sessions
-
   php:
     build: './php/'
     restart: unless-stopped
