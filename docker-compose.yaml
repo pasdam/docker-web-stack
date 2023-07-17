@@ -3,7 +3,7 @@ version: '3'
 services:
 
   webserver:
-    image: nginx:1.21.4-alpine
+    image: nginx:1.25.1-alpine3.17
     ports:
       - 80:80
     restart: unless-stopped
@@ -18,7 +18,7 @@ services:
       MYSQL_DATABASE: lamp_db
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-    image: mariadb:10.7.1-focal
+    image: mariadb:11.0.2-jammy
     restart: unless-stopped
     volumes:
       - ./data/db:/var/lib/mysql
