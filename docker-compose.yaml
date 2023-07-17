@@ -19,6 +19,8 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     image: mariadb:11.0.2-jammy
+    ports:
+      - 3306:3306
     restart: unless-stopped
     volumes:
       - ./data/db:/var/lib/mysql
