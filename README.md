@@ -17,7 +17,7 @@ The website files should be in the folder `www`.
 Create a local `env` file with the required secrets:
 
 ```sh
-cat << EOT > .local.env
+cat << EOT > mariadb.local.env
 MYSQL_ROOT_PASSWORD=your_mysql_root_password
 EOT
 ```
